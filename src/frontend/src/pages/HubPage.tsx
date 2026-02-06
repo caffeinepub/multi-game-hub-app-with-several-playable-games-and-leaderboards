@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { Play, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { GAME_REGISTRY } from '../gameRegistry';
 import BrandHeader from '../components/branding/BrandHeader';
-import GameCategoryIcon from '../components/icons/GameCategoryIcon';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import CategorySection from '../components/hub/CategorySection';
+import GameCard from '../components/hub/GameCard';
 
 export default function HubPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,6 +26,18 @@ export default function HubPage() {
     const matchesCategory = selectedCategory === 'all' || game.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  // Group games by category for "all" view
+  const gamesByCategory = filteredGames.reduce((acc, game) => {
+    if (!acc[game.category]) {
+      acc[game.category] = [];
+    }
+    acc[game.category].push(game);
+    return acc;
+  }, {} as Record<string, typeof GAME_REGISTRY>);
+
+  // Get sorted category keys (alphabetically)
+  const sortedCategories = Object.keys(gamesByCategory).sort();
 
   return (
     <div className="animate-fade-in">
@@ -71,56 +82,27 @@ export default function HubPage() {
         Showing {filteredGames.length} {filteredGames.length === 1 ? 'game' : 'games'}
       </div>
 
-      {/* Game Grid */}
-      <div className="game-grid">
-        {filteredGames.map((game) => (
-          <Card 
-            key={game.id} 
-            className="game-card-hover overflow-hidden"
-          >
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <GameCategoryIcon position={game.iconPosition} className="mb-2" />
-                {!game.isPlayable && (
-                  <Badge variant="secondary" className="text-xs">Coming Soon</Badge>
-                )}
-              </div>
-              <CardTitle className="text-xl">{game.title}</CardTitle>
-              <CardDescription>{game.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="capitalize">
-                  {game.category}
-                </Badge>
-                {game.difficulty && (
-                  <Badge 
-                    variant={game.difficulty === 'hard' ? 'destructive' : game.difficulty === 'medium' ? 'default' : 'secondary'}
-                    className="capitalize"
-                  >
-                    {game.difficulty}
-                  </Badge>
-                )}
-                {game.tags && game.tags.slice(0, 2).map((tag) => (
-                  <Badge key={tag} variant="outline" className="text-xs">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button 
-                onClick={() => navigate(game.id)}
-                disabled={!game.isPlayable}
-                className="w-full gap-2"
-              >
-                <Play className="w-4 h-4" />
-                {game.isPlayable ? 'Play Now' : 'Coming Soon'}
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+      {/* Game Display - Grouped or Single Category */}
+      {selectedCategory === 'all' ? (
+        // Grouped view by category
+        <div>
+          {sortedCategories.map((category) => (
+            <CategorySection
+              key={category}
+              category={category}
+              games={gamesByCategory[category]}
+              onPlay={navigate}
+            />
+          ))}
+        </div>
+      ) : (
+        // Single category view
+        <div className="game-grid">
+          {filteredGames.map((game) => (
+            <GameCard key={game.id} game={game} onPlay={navigate} />
+          ))}
+        </div>
+      )}
 
       {/* No results message */}
       {filteredGames.length === 0 && (

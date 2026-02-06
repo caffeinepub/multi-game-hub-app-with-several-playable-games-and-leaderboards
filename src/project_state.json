@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Expand the multi-game hub app to include up to 50 games across varied categories/types (e.g., funny, hard, etc.).",
   "architectural_notes": [],
   "known_issues": [],
@@ -93,6 +93,22 @@
         "REQ-12"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-hub-page-to-support-grouped-browsing-by-game-category-when-viewing-all-categories-render-games-grouped-into-distinct-category-sections-one-section-per-game-category-with-a-clear-category-heading-and-per-section-game-list-grid-keep-existing-search-behavior-and-ensure-category-grouping-updates-dynamically-based-on-the-current-search-query",
+      "title": "Update the Hub page to support grouped browsing by game category: when viewing \"All Categories\", render games grouped into distinct category sections (one section per `game.category`) with a clear category heading and per-section game list/grid; keep existing search behavior and ensure category grouping updates dynamically based on the current search query.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-a-specific-category-is-selected-in-the-existing-category-filter-not-all-render-a-single-category-section-for-that-category-or-a-single-ungrouped-list-while-preserving-the-existing-game-card-ui-play-coming-soon-behavior-and-result-count-messaging",
+      "title": "When a specific category is selected in the existing category filter (not \"all\"), render a single category section for that category (or a single ungrouped list) while preserving the existing game-card UI, play/coming-soon behavior, and result count messaging.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -113,6 +129,12 @@
     {
       "id": "AR-6",
       "summary": "Add support for a larger catalog of games (up to 50), spanning multiple categories/types (e.g., funny, hard, etc.).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Sort/organize the games in the hub into simple categories (i.e., grouped browsing by category).",
       "reqIds": [],
       "status": "pending"
     }

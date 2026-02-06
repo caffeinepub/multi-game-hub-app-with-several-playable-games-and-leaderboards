@@ -12,11 +12,13 @@
   "frontend/src/components/branding/BrandHeader.tsx": "Hero section component displaying the GameHub logo and welcome message on the hub page.",
   "frontend/src/components/icons/GameCategoryIcon.tsx": "Component that displays category icons from the sprite sheet using CSS background positioning.",
   "frontend/src/components/leaderboards/LeaderboardPanel.tsx": "Leaderboard display component showing top 10 scores and user's best score with rank icons and highlighting.",
-  "frontend/src/pages/HubPage.tsx": "Main hub page with search input and category filter controls, displaying filtered game cards with tags and difficulty badges in a responsive grid.",
+  "frontend/src/pages/HubPage.tsx": "Main hub page with search and category filtering that displays games grouped by category sections when \"All Categories\" is selected, or as a single grid for specific categories, with accurate game count.",
   "frontend/src/pages/GameShellPage.tsx": "Game container page that renders game components and displays game metadata (tags, difficulty) in a card above the game area with leaderboard panel.",
   "frontend/src/pages/AllLeaderboardsPage.tsx": "Dedicated leaderboards page listing playable games with their metadata (category, difficulty, tags) and links to individual leaderboards.",
   "frontend/src/games/comingSoon/ComingSoonGame.tsx": "Placeholder component for games under development, displaying a friendly \"coming soon\" message.",
   "frontend/src/games/ticTacToe/TicTacToeGame.tsx": "Fully playable Tic-Tac-Toe game with win/draw detection, restart functionality, and score submission (100 for X win, 50 for O win).",
   "frontend/src/games/reaction/ReactionTimerGame.tsx": "Reaction time testing game measuring user reflexes with random delays, best time tracking, and score calculation based on speed.",
-  "frontend/src/games/word/WordScrambleGame.tsx": "Word unscrambling game with 60-second timer, hints, attempt tracking, and point system rewarding fewer attempts."
+  "frontend/src/games/word/WordScrambleGame.tsx": "Word unscrambling game with 60-second timer, hints, attempt tracking, and point system rewarding fewer attempts.",
+  "frontend/src/components/hub/GameCard.tsx": "Reusable game card component displaying game icon, title, description, category badge, optional difficulty and tag badges, and Play/Coming Soon button.",
+  "frontend/src/components/hub/CategorySection.tsx": "Category section component that renders a category heading and a grid of game cards for that category, hiding when no games are present."
 }

@@ -1,79 +1,50 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T07:01:17.162Z",
+  "generatedAt": "2026-02-06T07:07:35.241Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 4,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-10",
-        "summary": "Update the game metadata model so the catalog can represent types like “funny” and “hard” without breaking existing pages. Add optional fields to `GameInfo` (e.g., `tags` and/or `difficulty`) and update the Hub, Game Shell, and All Leaderboards pages to display these fields when present.",
+        "id": "REQ-13",
+        "summary": "Update the Hub page to support grouped browsing by game category: when viewing \"All Categories\", render games grouped into distinct category sections (one section per `game.category`) with a clear category heading and per-section game list/grid; keep existing search behavior and ensure category grouping updates dynamically based on the current search query.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/gameRegistry.ts",
-          "frontend/src/pages/HubPage.tsx",
-          "frontend/src/pages/GameShellPage.tsx",
-          "frontend/src/pages/AllLeaderboardsPage.tsx"
+          "frontend/src/components/hub/GameCard.tsx",
+          "frontend/src/components/hub/CategorySection.tsx",
+          "frontend/src/pages/HubPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/gameRegistry.ts",
-          "frontend/src/pages/HubPage.tsx",
-          "frontend/src/pages/GameShellPage.tsx",
-          "frontend/src/pages/AllLeaderboardsPage.tsx"
+          "frontend/src/components/hub/GameCard.tsx",
+          "frontend/src/components/hub/CategorySection.tsx",
+          "frontend/src/pages/HubPage.tsx"
         ]
       },
       {
-        "id": "REQ-11",
-        "summary": "Ensure the Hub UI remains usable with a large catalog (up to 50 games) by adding basic discovery controls on the hub screen: a text search (by title) and a category filter (using existing `category` values).",
+        "id": "REQ-14",
+        "summary": "When a specific category is selected in the existing category filter (not \"all\"), render a single category section for that category (or a single ungrouped list) while preserving the existing game-card UI, play/coming-soon behavior, and result count messaging.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/HubPage.tsx",
-          "frontend/src/index.css"
+          "frontend/src/pages/HubPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/HubPage.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Add a lightweight runtime/dev validation for the registry to enforce the “maximum 50 games” constraint and prevent common configuration errors (e.g., length > 50, duplicate IDs).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/gameRegistry.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/gameRegistry.ts"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Expand the frontend game catalog to include up to 50 games by extending `frontend/src/gameRegistry.ts` with additional game entries (most can be marked as not yet playable) and ensure each game has a unique `id`, a clear English `title`, and a short English `description` that can reflect types such as “funny” or “hard”.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/gameRegistry.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/gameRegistry.ts"
+          "frontend/src/pages/HubPage.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/gameRegistry.ts",
-    "frontend/src/index.css",
-    "frontend/src/pages/AllLeaderboardsPage.tsx",
-    "frontend/src/pages/GameShellPage.tsx",
+    "frontend/src/components/hub/CategorySection.tsx",
+    "frontend/src/components/hub/GameCard.tsx",
     "frontend/src/pages/HubPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
