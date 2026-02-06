@@ -1,0 +1,103 @@
+{
+  "kind": "build_request",
+  "title": "Expand game catalog to support up to 50 games with varied types (funny, hard, etc.)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Expand the frontend game catalog to include up to 50 games by extending `frontend/src/gameRegistry.ts` with additional game entries (most can be marked as not yet playable) and ensure each game has a unique `id`, a clear English `title`, and a short English `description` that can reflect types such as “funny” or “hard”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Add a maximum 50 games funny, Hart, etc."
+        ]
+      },
+      "acceptanceCriteria": [
+        "`GAME_REGISTRY` contains more games than today and can scale up to 50 total entries without duplicate `id` values.",
+        "At least some new games have descriptions that clearly indicate “funny” and/or “hard” types in English.",
+        "Existing playable games (Tic-Tac-Toe, Reaction Timer, Word Scramble) remain playable and unchanged in behavior."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Update the game metadata model so the catalog can represent types like “funny” and “hard” without breaking existing pages. Add optional fields to `GameInfo` (e.g., `tags` and/or `difficulty`) and update the Hub, Game Shell, and All Leaderboards pages to display these fields when present.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Add a maximum 50 games funny, Hart, etc."
+        ]
+      },
+      "acceptanceCriteria": [
+        "TypeScript compiles with no errors after extending `GameInfo` and updating all usages.",
+        "Hub game cards still show category, and additionally show tags/difficulty when present (in English).",
+        "AllLeaderboardsPage continues to list playable games and is not affected by the presence of additional non-playable games with new metadata."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Ensure the Hub UI remains usable with a large catalog (up to 50 games) by adding basic discovery controls on the hub screen: a text search (by title) and a category filter (using existing `category` values).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Add a maximum 50 games funny, Hart, etc."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hub page includes a search input that filters visible games by title as the user types.",
+        "Hub page includes a category filter that narrows the grid to selected category (with an option to show all).",
+        "With 50 registered games, the hub page remains readable and navigable (no broken layout, no overlapping cards)."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add a lightweight runtime/dev validation for the registry to enforce the “maximum 50 games” constraint and prevent common configuration errors (e.g., length > 50, duplicate IDs).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Add a maximum 50 games funny, Hart, etc."
+        ]
+      },
+      "acceptanceCriteria": [
+        "If `GAME_REGISTRY.length` exceeds 50, the app surfaces a clear warning in the browser console during development (and does not crash).",
+        "If duplicate game IDs exist, the app surfaces a clear warning in the browser console during development (and does not crash).",
+        "When the registry is valid (<= 50 and unique IDs), no warnings are shown."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under `frontend/src/components/ui` (shadcn components); compose them as-is.",
+    "Do not edit files listed as immutable in SYSTEM_CONTEXT (e.g., `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`).",
+    "Keep backend as a single Motoko actor; do not introduce additional backend services."
+  ],
+  "nonGoals": [
+    "Implementing 50 fully playable games (new entries may be “Coming Soon”).",
+    "Adding new authentication methods beyond Internet Identity.",
+    "Adding new backend persistence structures specifically for game categories/tags/difficulty (keep this as frontend metadata unless explicitly required later)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

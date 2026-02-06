@@ -1,0 +1,91 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Scale GameHub catalog metadata and hub discovery controls for up to 50 games",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "summary": "Extend the game registry to support up to 50 games with unique IDs and clear English titles/descriptions (including “funny”/“hard” types) while keeping existing playable games unchanged.",
+      "acceptanceCriteria": [
+        "`GAME_REGISTRY` contains more games than today and can scale up to 50 total entries without duplicate `id` values.",
+        "At least some new games have descriptions that clearly indicate “funny” and/or “hard” types in English.",
+        "Existing playable games (Tic-Tac-Toe, Reaction Timer, Word Scramble) remain playable and unchanged in behavior."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/gameRegistry.ts",
+          "operation": "modify",
+          "description": "Add additional game entries to `GAME_REGISTRY` (up to 50 total) with unique `id`, English `title`, and English `description` (include examples that read as “funny” and/or “hard”), keeping existing playable games’ IDs and core fields intact and leaving most new entries as `isPlayable: false`."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Extend the GameInfo metadata model with optional tags/difficulty and display them on Hub, Game Shell, and All Leaderboards pages without breaking existing behavior.",
+      "acceptanceCriteria": [
+        "TypeScript compiles with no errors after extending `GameInfo` and updating all usages.",
+        "Hub game cards still show category, and additionally show tags/difficulty when present (in English).",
+        "AllLeaderboardsPage continues to list playable games and is not affected by the presence of additional non-playable games with new metadata."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/gameRegistry.ts",
+          "operation": "modify",
+          "description": "Extend `GameInfo` with optional metadata fields (e.g., `tags?: string[]` and `difficulty?: 'easy' | 'medium' | 'hard'`) and populate these fields for a subset of games (including some marked as “funny” and/or “hard”) while maintaining compatibility with existing usages."
+        },
+        {
+          "path": "frontend/src/pages/HubPage.tsx",
+          "operation": "modify",
+          "description": "Update hub game cards to render new optional `tags`/`difficulty` when present (alongside the existing category badge) using existing shadcn/ui components as-is (e.g., Badge); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/GameShellPage.tsx",
+          "operation": "modify",
+          "description": "Display the selected game’s optional `tags`/`difficulty` metadata in the Game Shell view when present (without changing playable/non-playable branching logic or leaderboard visibility); use existing shadcn/ui components as-is (e.g., Badge/Card primitives if needed); verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AllLeaderboardsPage.tsx",
+          "operation": "modify",
+          "description": "Update the leaderboards list cards to optionally display `tags`/`difficulty` for playable games when present, while continuing to filter the list to playable games only; use existing shadcn/ui components as-is (e.g., Badge); verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add hub discovery controls (title search and category filter) so the Hub remains usable with up to 50 games.",
+      "acceptanceCriteria": [
+        "Hub page includes a search input that filters visible games by title as the user types.",
+        "Hub page includes a category filter that narrows the grid to selected category (with an option to show all).",
+        "With 50 registered games, the hub page remains readable and navigable (no broken layout, no overlapping cards)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HubPage.tsx",
+          "operation": "modify",
+          "description": "Add local state for a title search string and selected category (including an 'All' option), derive a filtered list from `GAME_REGISTRY`, and render a search input + category filter UI above the grid using existing shadcn/ui components as-is (e.g., Input/Select/Button where available) without modifying `frontend/src/components/ui/*`; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust/extend existing utility classes used by the Hub layout (if needed) to ensure the filter controls and the game grid remain readable at larger catalog sizes (up to 50) without card overlap or broken spacing, using existing global styling entry points only."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add lightweight dev/runtime validation to warn (not crash) when the registry exceeds 50 games or contains duplicate IDs.",
+      "acceptanceCriteria": [
+        "If `GAME_REGISTRY.length` exceeds 50, the app surfaces a clear warning in the browser console during development (and does not crash).",
+        "If duplicate game IDs exist, the app surfaces a clear warning in the browser console during development (and does not crash).",
+        "When the registry is valid (<= 50 and unique IDs), no warnings are shown."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/gameRegistry.ts",
+          "operation": "modify",
+          "description": "Add a small validation helper that (in development only) checks `GAME_REGISTRY` for max length (<= 50) and duplicate `id` values and prints clear `console.warn` messages when invalid; ensure validation never throws and produces no warnings when valid."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "frontend/src/index.css": "Global styles with warm amber/orange OKLCH color palette, custom game utility classes, and responsive grid adjustments for larger screens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with warm color tokens, custom fonts, border radii, shadows, and animations for the game hub aesthetic.",
+  "frontend/src/App.tsx": "Main application component implementing hash-based routing for hub, game, and leaderboards pages with theme provider and profile setup dialog.",
+  "frontend/src/gameRegistry.ts": "Centralized registry of 50 games with extended metadata including optional tags and difficulty levels, helper functions, and development-only validation for max games and duplicate IDs.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including user profiles, leaderboard fetching, and score submission with proper cache invalidation.",
+  "frontend/src/hooks/useAuthStatus.ts": "Helper hook that derives authentication state, principal, and short principal display from Internet Identity.",
+  "frontend/src/components/layout/AppLayout.tsx": "Main layout wrapper providing consistent structure with header, main content area, and footer across all pages.",
+  "frontend/src/components/layout/AppHeader.tsx": "Sticky header with logo, navigation links, user profile display, and login/logout button.",
+  "frontend/src/components/auth/LoginButton.tsx": "Authentication button component handling Internet Identity login/logout with loading states and query cache clearing.",
+  "frontend/src/components/auth/ProfileSetupDialog.tsx": "Modal dialog for first-time user profile setup, collecting display name after Internet Identity authentication.",
+  "frontend/src/components/branding/BrandHeader.tsx": "Hero section component displaying the GameHub logo and welcome message on the hub page.",
+  "frontend/src/components/icons/GameCategoryIcon.tsx": "Component that displays category icons from the sprite sheet using CSS background positioning.",
+  "frontend/src/components/leaderboards/LeaderboardPanel.tsx": "Leaderboard display component showing top 10 scores and user's best score with rank icons and highlighting.",
+  "frontend/src/pages/HubPage.tsx": "Main hub page with search input and category filter controls, displaying filtered game cards with tags and difficulty badges in a responsive grid.",
+  "frontend/src/pages/GameShellPage.tsx": "Game container page that renders game components and displays game metadata (tags, difficulty) in a card above the game area with leaderboard panel.",
+  "frontend/src/pages/AllLeaderboardsPage.tsx": "Dedicated leaderboards page listing playable games with their metadata (category, difficulty, tags) and links to individual leaderboards.",
+  "frontend/src/games/comingSoon/ComingSoonGame.tsx": "Placeholder component for games under development, displaying a friendly \"coming soon\" message.",
+  "frontend/src/games/ticTacToe/TicTacToeGame.tsx": "Fully playable Tic-Tac-Toe game with win/draw detection, restart functionality, and score submission (100 for X win, 50 for O win).",
+  "frontend/src/games/reaction/ReactionTimerGame.tsx": "Reaction time testing game measuring user reflexes with random delays, best time tracking, and score calculation based on speed.",
+  "frontend/src/games/word/WordScrambleGame.tsx": "Word unscrambling game with 60-second timer, hints, attempt tracking, and point system rewarding fewer attempts."
+}

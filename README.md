@@ -1,2 +1,3 @@
-# multi-game-hub-app-with-several-playable-games-and-leaderboards
-Exported from Caffeine project: Multi-game hub app with several playable games and leaderboards
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

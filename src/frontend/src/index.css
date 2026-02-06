@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Warm amber/orange palette for light mode */
+        --background: 0.98 0.01 60;
+        --foreground: 0.25 0.02 40;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 40;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 40;
+        --primary: 0.65 0.18 45;
+        --primary-foreground: 0.98 0.01 60;
+        --secondary: 0.92 0.05 55;
+        --secondary-foreground: 0.35 0.03 40;
+        --muted: 0.95 0.02 50;
+        --muted-foreground: 0.55 0.02 40;
+        --accent: 0.75 0.15 35;
+        --accent-foreground: 0.98 0.01 60;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.88 0.03 50;
+        --input: 0.88 0.03 50;
+        --ring: 0.65 0.18 45;
+        --chart-1: 0.65 0.18 45;
+        --chart-2: 0.75 0.15 35;
+        --chart-3: 0.55 0.12 55;
+        --chart-4: 0.70 0.20 25;
+        --chart-5: 0.60 0.16 65;
+    }
+
+    .dark {
+        --background: 0.18 0.02 40;
+        --foreground: 0.95 0.02 50;
+        --card: 0.22 0.02 40;
+        --card-foreground: 0.95 0.02 50;
+        --popover: 0.20 0.02 40;
+        --popover-foreground: 0.95 0.02 50;
+        --primary: 0.70 0.18 45;
+        --primary-foreground: 0.15 0.02 40;
+        --secondary: 0.28 0.03 45;
+        --secondary-foreground: 0.95 0.02 50;
+        --muted: 0.30 0.02 40;
+        --muted-foreground: 0.65 0.02 45;
+        --accent: 0.75 0.15 35;
+        --accent-foreground: 0.98 0.01 60;
+        --destructive: 0.60 0.22 30;
+        --destructive-foreground: 0.98 0.01 60;
+        --border: 0.32 0.02 40;
+        --input: 0.32 0.02 40;
+        --ring: 0.70 0.18 45;
+        --chart-1: 0.70 0.18 45;
+        --chart-2: 0.75 0.15 35;
+        --chart-3: 0.55 0.12 55;
+        --chart-4: 0.80 0.20 25;
+        --chart-5: 0.60 0.16 65;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+}
+
+@layer utilities {
+    .game-card-hover {
+        @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    }
+    
+    .game-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    /* Ensure grid remains readable with many items */
+    @media (min-width: 1536px) {
+        .game-grid {
+            @apply grid-cols-4;
+        }
+    }
+}

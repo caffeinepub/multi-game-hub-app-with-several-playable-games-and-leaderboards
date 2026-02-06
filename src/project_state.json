@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Expand the multi-game hub app to include up to 50 games across varied categories/types (e.g., funny, hard, etc.).",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-home-screen-that-functions-as-a-multi-game-hub-showing-a-grid-list-of-available-games-with-name-short-description-and-a-clear-play-button-for-each-game",
+      "title": "Create a home screen that functions as a multi-game hub, showing a grid/list of available games with name, short description, and a clear Play button for each game.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-at-least-3-fully-playable-games-in-the-app-client-side-each-with-clear-rules-help-restart-new-game-controls-and-an-end-state-win-lose-score",
+      "title": "Implement at least 3 fully playable games in the app (client-side), each with clear rules/help, restart/new game controls, and an end state (win/lose/score).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-user-sign-in-via-internet-identity-and-show-signed-in-state-in-the-ui-e-g-header-with-login-logout-and-user-principal-short-id",
+      "title": "Add user sign-in via Internet Identity and show signed-in state in the UI (e.g., header with login/logout and user principal/short ID).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-per-game-leaderboard-ui-that-shows-top-scores-and-the-current-user-s-best-score-when-logged-in-and-allow-submitting-a-score-at-the-end-of-a-game",
+      "title": "Add per-game leaderboard UI that shows top scores and the current user’s best score (when logged in), and allow submitting a score at the end of a game.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-coherent-creative-visual-theme-for-the-whole-app-colors-typography-spacing-components-and-apply-it-consistently-across-hub-game-screens-and-leaderboards-avoid-blue-purple-as-primary-colors",
+      "title": "Provide a coherent, creative visual theme for the whole app (colors, typography, spacing, components) and apply it consistently across hub, game screens, and leaderboards (avoid blue/purple as primary colors).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-navigation-structure-e-g-header-routes-for-hub-individual-game-pages-and-an-optional-all-leaderboards-page",
+      "title": "Add basic navigation structure (e.g., header + routes) for Hub, individual game pages, and an optional All Leaderboards page.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-images-as-app-assets-and-use-them-in-the-ui-logo-brand-mark-and-game-category-icons-store-them-under-frontend-public-assets-generated-and-reference-them-from-the-frontend",
+      "title": "Add generated static images as app assets and use them in the UI (logo/brand mark and game category icons). Store them under frontend/public/assets/generated and reference them from the frontend.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-frontend-game-catalog-to-include-up-to-50-games-by-extending-frontend-src-gameregistry-ts-with-additional-game-entries-most-can-be-marked-as-not-yet-playable-and-ensure-each-game-has-a-unique-id-a-clear-english-title-and-a-short-english-description-that-can-reflect-types-such-as-funny-or-hard",
+      "title": "Expand the frontend game catalog to include up to 50 games by extending `frontend/src/gameRegistry.ts` with additional game entries (most can be marked as not yet playable) and ensure each game has a unique `id`, a clear English `title`, and a short English `description` that can reflect types such as “funny” or “hard”.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-game-metadata-model-so-the-catalog-can-represent-types-like-funny-and-hard-without-breaking-existing-pages-add-optional-fields-to-gameinfo-e-g-tags-and-or-difficulty-and-update-the-hub-game-shell-and-all-leaderboards-pages-to-display-these-fields-when-present",
+      "title": "Update the game metadata model so the catalog can represent types like “funny” and “hard” without breaking existing pages. Add optional fields to `GameInfo` (e.g., `tags` and/or `difficulty`) and update the Hub, Game Shell, and All Leaderboards pages to display these fields when present.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-hub-ui-remains-usable-with-a-large-catalog-up-to-50-games-by-adding-basic-discovery-controls-on-the-hub-screen-a-text-search-by-title-and-a-category-filter-using-existing-category-values",
+      "title": "Ensure the Hub UI remains usable with a large catalog (up to 50 games) by adding basic discovery controls on the hub screen: a text search (by title) and a category filter (using existing `category` values).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-lightweight-runtime-dev-validation-for-the-registry-to-enforce-the-maximum-50-games-constraint-and-prevent-common-configuration-errors-e-g-length-50-duplicate-ids",
+      "title": "Add a lightweight runtime/dev validation for the registry to enforce the “maximum 50 games” constraint and prevent common configuration errors (e.g., length > 50, duplicate IDs).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a games app that provides many different types of games (a multi-game hub)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add backend support to record and retrieve high scores per game, associated with an authenticated user (Internet Identity principal).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add support for a larger catalog of games (up to 50), spanning multiple categories/types (e.g., funny, hard, etc.).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Multi-game hub app with several playable games and leaderboards",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

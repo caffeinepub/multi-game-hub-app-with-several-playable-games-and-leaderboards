@@ -1,0 +1,83 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T07:01:17.162Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Update the game metadata model so the catalog can represent types like “funny” and “hard” without breaking existing pages. Add optional fields to `GameInfo` (e.g., `tags` and/or `difficulty`) and update the Hub, Game Shell, and All Leaderboards pages to display these fields when present.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/gameRegistry.ts",
+          "frontend/src/pages/HubPage.tsx",
+          "frontend/src/pages/GameShellPage.tsx",
+          "frontend/src/pages/AllLeaderboardsPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/gameRegistry.ts",
+          "frontend/src/pages/HubPage.tsx",
+          "frontend/src/pages/GameShellPage.tsx",
+          "frontend/src/pages/AllLeaderboardsPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Ensure the Hub UI remains usable with a large catalog (up to 50 games) by adding basic discovery controls on the hub screen: a text search (by title) and a category filter (using existing `category` values).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HubPage.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HubPage.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Add a lightweight runtime/dev validation for the registry to enforce the “maximum 50 games” constraint and prevent common configuration errors (e.g., length > 50, duplicate IDs).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/gameRegistry.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/gameRegistry.ts"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Expand the frontend game catalog to include up to 50 games by extending `frontend/src/gameRegistry.ts` with additional game entries (most can be marked as not yet playable) and ensure each game has a unique `id`, a clear English `title`, and a short English `description` that can reflect types such as “funny” or “hard”.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/gameRegistry.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/gameRegistry.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/gameRegistry.ts",
+    "frontend/src/index.css",
+    "frontend/src/pages/AllLeaderboardsPage.tsx",
+    "frontend/src/pages/GameShellPage.tsx",
+    "frontend/src/pages/HubPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

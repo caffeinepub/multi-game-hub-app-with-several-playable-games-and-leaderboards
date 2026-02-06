@@ -1,0 +1,85 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-expand-the-frontend-game-catalog-to-include-up-to-50-games-by-extending-frontend-src-gameregistry-ts-with-additional-game-entries-most-can-be-marked-as-not-yet-playable-and-ensure-each-game-has-a-unique-id-a-clear-english-title-and-a-short-english-description-that-can-reflect-types-such-as-funny-or-hard",
+      "featureTitle": "Expand the frontend game catalog to include up to 50 games by extending `frontend/src/gameRegistry.ts` with additional game entries (most can be marked as not yet playable) and ensure each game has a unique `id`, a clear English `title`, and a short English `description` that can reflect types such as “funny” or “hard”.",
+      "files": [
+        "frontend/src/gameRegistry.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-game-metadata-model-so-the-catalog-can-represent-types-like-funny-and-hard-without-breaking-existing-pages-add-optional-fields-to-gameinfo-e-g-tags-and-or-difficulty-and-update-the-hub-game-shell-and-all-leaderboards-pages-to-display-these-fields-when-present",
+      "featureTitle": "Update the game metadata model so the catalog can represent types like “funny” and “hard” without breaking existing pages. Add optional fields to `GameInfo` (e.g., `tags` and/or `difficulty`) and update the Hub, Game Shell, and All Leaderboards pages to display these fields when present.",
+      "files": [
+        "frontend/src/gameRegistry.ts",
+        "frontend/src/pages/AllLeaderboardsPage.tsx",
+        "frontend/src/pages/GameShellPage.tsx",
+        "frontend/src/pages/HubPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-hub-ui-remains-usable-with-a-large-catalog-up-to-50-games-by-adding-basic-discovery-controls-on-the-hub-screen-a-text-search-by-title-and-a-category-filter-using-existing-category-values",
+      "featureTitle": "Ensure the Hub UI remains usable with a large catalog (up to 50 games) by adding basic discovery controls on the hub screen: a text search (by title) and a category filter (using existing `category` values).",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/HubPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-lightweight-runtime-dev-validation-for-the-registry-to-enforce-the-maximum-50-games-constraint-and-prevent-common-configuration-errors-e-g-length-50-duplicate-ids",
+      "featureTitle": "Add a lightweight runtime/dev validation for the registry to enforce the “maximum 50 games” constraint and prevent common configuration errors (e.g., length > 50, duplicate IDs).",
+      "files": [
+        "frontend/src/gameRegistry.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
